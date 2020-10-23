@@ -1,0 +1,137 @@
+{% extends 'hub_template/base.html' %}
+{% block page_title %}
+    الأساتذة
+{% endblock page_title %}
+
+{% block main_content %}
+  {% load static %}
+
+  <section class="content">
+      <div class="row justify-content-md-center">
+        <div class="col-12">
+          
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title" style="float:right;">قائمة الأساتذة</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped table-hover">
+                <thead >
+                <tr>
+                  <th>الإسم</th>
+                  <th>اللقب</th>
+                  <th>الهاتف</th>
+                  <th>إسم المستخدم</th>
+                  <th>كلمة السر</th>
+                  <th>معالجة</th>
+                </tr>
+                </thead>
+                <tbody >
+                {% for teacher in teachers %}
+                <tr>
+                  <td>{{ teacher.admin.first_name }}</td>
+                  <td>{{ teacher.admin.last_name }} </td>
+                  <td>{{ teacher.phone }}</td>
+                  <td> {{ teacher.admin.username }}</td>
+                  <td>{{ teacher.admin.password }}</td>
+                  <td><a href="/edit_teacher/{{ teacher.admin.id }}" class="btn btn-success">تعديل</a><a href="/delete_teacher/{{ teacher.admin.id }}" class="btn btn-danger" onclick="return confirm('هل تريد حذف هذا الموظف ؟')">حذف</a></td>
+                </tr>
+              {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                 <th>الإسم</th>
+                  <th>اللقب</th>
+                  <th>الهاتف</th>
+                  <th>إسم المستخدم</th>
+                  <th>كلمة السر</th>
+                  <th>معالجة</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+        <button type="button" class="btn btn-primary">حذف</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock main_content %}
+{% block custom_js %}
+
+<script>
+  $(function () {
+   
+    $('#example2').DataTable({
+        
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true,
+      
+    });
+  });
+
+  $(document).ready(function() {
+    $('#example1').DataTable( {
+        "language": {
+	"sEmptyTable":     "ليست هناك بيانات متاحة في الجدول",
+	"sLoadingRecords": "جارٍ التحميل...",
+	"sProcessing":   "جارٍ التحميل...",
+	"sLengthMenu":   "أظهر _MENU_ مدخلات",
+	"sZeroRecords":  "لم يعثر على أية سجلات",
+	"sInfo":         "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+	"sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
+	"sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+	"sInfoPostFix":  "",
+	"sSearch":       "ابحث:",
+	"sUrl":          "",
+	"oPaginate": {
+		"sFirst":    "الأول",
+		"sPrevious": "السابق",
+		"sNext":     "التالي",
+		"sLast":     "الأخير"
+	},
+	"oAria": {
+		"sSortAscending":  ": تفعيل لترتيب العمود تصاعدياً",
+		"sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
+	}
+}
+
+
+    } );
+} );
+</script>
+
+{% endblock custom_js %}
