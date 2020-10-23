@@ -16,7 +16,7 @@
           <img src={% static "dist/img/user2-160x160.jpg"%} class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">آريا ستارك</a>
         </div>
       </div>
 
@@ -34,92 +34,45 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            {% url 'add_stuff' as add_stuff %}
-              <li class="nav-item">
-                <a href="{{ add_stuff }}" class="nav-link {% if request.path == add_stuff %} active {% endif %}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>إضافة أستاذ</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/manage_teacher" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>الأساتذة</p>
-                </a>
-              </li>
+            
               
               <li class="nav-item">
                 <a href="/add_courses" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ااضافة دورة</p>
+                  <p>ااضافة فوج</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/manage_courses" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>الدورات</p>
+                  <p>الأفواج</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/add_stuff" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>أضافة موظف</p>
+                  <p>أضافة تلميذ</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/manage_staff" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>الموظفين</p>
+                  <p>التلاميذ</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/add_enterprise" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>إضافة مؤسسة </p>
+                  <p>إضافة تلميذ تحضيري </p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/manage_enterprise" class="nav-link">
                   <i class="far fa-address-card nav-icon"></i>
-                  <p>المؤسسات</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/add_department" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>أضافة مقر</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/manage_department" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>المقرات</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/add_nursery" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>أضافة التحضيري</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/manage_nursery" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>التحضيري</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/add_sections" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>أضافة قسم</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/manage_sections" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>الأقسام</p>
-                </a>
-              </li>
+              
             </ul>
           </li>
           
